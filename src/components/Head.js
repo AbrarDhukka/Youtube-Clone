@@ -4,8 +4,9 @@ const Head = () => {
   return (
     <div className='flex'>
         <div className='w-[10%] flex items-center justify-center'>
-       <img src='https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/hamburger-menu-icon.png' alt='hamburger' className='h-4 ml-12 mr-4'></img>
-        <img src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png" alt='logo' className='h-16'></img>
+        <button className='cursor-pointer'>
+       <img src='https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/hamburger-menu-icon.png' alt='hamburger' className='h-4 ml-12 mr-4'></img></button>
+        <img src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png" alt='logo' className='h-16 ml-4'></img>
         </div>
 
         <div className='w-[75%] flex justify-center items-center'>
