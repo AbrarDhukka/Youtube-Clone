@@ -1,17 +1,20 @@
-import { useState } from "react";
+//import { useState } from "react";
 import Head from "./components/Head";
 import Sidebar from "./components/Sidebar";
-import { DataProvider } from "./utils/DataContext";
+import { Provider } from 'react-redux'
+import { store } from "./utils/store";
+//import { DataProvider } from "./utils/DataContext";
 
 
 function App() {
   
   return (
     <div>
-    <DataProvider>
+    <Provider store={store}>
      <Head></Head>
      <Sidebar></Sidebar>
-     </DataProvider>
+     </Provider>
+     
     </div>
   );
 }
