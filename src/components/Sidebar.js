@@ -1,6 +1,8 @@
 import React from 'react'
+import { useData } from '../utils/DataContext';
 
-const Sidebar = ({isMenuOpen}) => {
+const Sidebar = () => {
+  const {isMenuOpen}=useData()
   if (isMenuOpen===false) return null;
   return (
     <div className='w-[15%] border-2 border-black h-screen shadow-lg m-2 p-2'>

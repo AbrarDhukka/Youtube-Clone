@@ -1,17 +1,17 @@
 import { useState } from "react";
 import Head from "./components/Head";
 import Sidebar from "./components/Sidebar";
+import { DataProvider } from "./utils/DataContext";
 
 
 function App() {
-  const [isMenuOpen , setIsMenuOpen] = useState(true)
-  const menuHandler = ()=>{
-    setIsMenuOpen(!isMenuOpen)
-  }
+  
   return (
     <div>
-     <Head menuHandler={menuHandler}></Head>
-     <Sidebar isMenuOpen={isMenuOpen}></Sidebar>
+    <DataProvider>
+     <Head></Head>
+     <Sidebar></Sidebar>
+     </DataProvider>
     </div>
   );
 }

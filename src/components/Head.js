@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useData } from '../utils/DataContext'
 
-const Head = ({menuHandler}) => {
- 
+const Head = () => {
+
+ const {menuHandler}=useData()
   return (
     <div className='flex shadow-lg'>
         <div className='w-[10%] flex items-center justify-center'>
