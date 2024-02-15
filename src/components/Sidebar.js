@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({isMenuOpen}) => {
+  if (isMenuOpen===false) return null;
   return (
     <div className='w-[15%] border-2 border-black h-screen shadow-lg m-2 p-2'>
         <h2>Home</h2>

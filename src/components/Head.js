@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Head = () => {
+const Head = ({menuHandler}) => {
+ 
   return (
-    <div className='flex'>
+    <div className='flex shadow-lg'>
         <div className='w-[10%] flex items-center justify-center'>
-        <button className='cursor-pointer'>
+        <button className='cursor-pointer' onClick={menuHandler}>
        <img src='https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/hamburger-menu-icon.png' alt='hamburger' className='h-4 ml-12 mr-4'></img></button>
         <img src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png" alt='logo' className='h-16 ml-4'></img>
         </div>
