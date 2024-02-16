@@ -44,7 +44,6 @@ import { menuHandler } from "../utils/headSlice";
 //     </div>
 //   );
 // };
-
 // export default Head;
 
 
