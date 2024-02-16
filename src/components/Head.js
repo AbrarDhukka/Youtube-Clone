@@ -22,7 +22,6 @@ import { menuHandler } from "../utils/headSlice";
 //           className="h-16 ml-4"
 //         ></img>
 //       </div>
-
 //       <div className="w-[75%] flex justify-center items-center">
 //         <input
 //           type="text"
@@ -35,7 +34,6 @@ import { menuHandler } from "../utils/headSlice";
 //           className="h-[44px] border-2 border-gray-300 rounded-r-full"
 //         ></img>
 //       </div>
-
 //       <div className=" w-[15%] flex justify-center items-center">
 //         <img
 //           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_1baO4t0RgM8tpHYBW_Ue7aiZUOhNoNP5Q&usqp=CAU"
