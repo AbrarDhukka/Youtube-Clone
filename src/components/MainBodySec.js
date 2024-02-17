@@ -17,9 +17,11 @@ const MainBodySec = () => {
   };
   return (
     <>
-    <div className="w-[85%] flex flex-wrap justify-center items-center">
-    {videos.map(video => <VideoCard key={video.id} info={video}></VideoCard>)}
-    </div>
+      <div className="w-[85%] flex flex-wrap justify-center items-center">
+        {videos.map((video) => (
+          <VideoCard key={video.id} info={video}></VideoCard>
+        ))}
+      </div>
     </>
   );
 };
