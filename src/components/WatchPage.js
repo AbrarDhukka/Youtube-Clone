@@ -1,7 +1,9 @@
 import React from "react";
 
 const WatchPage = () => {
-  return <div>WatchPage</div>;
+  return <div>
+  <div>WatchPage</div>
+  </div>;
 };
 
 export default WatchPage;
