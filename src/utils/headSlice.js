@@ -9,8 +9,11 @@ export const headSlice = createSlice({
     menuHandler: (state) => {
       state.isMenuOpen = !state.isMenuOpen;
     },
+    closeMenu: (state) => {
+      state.isMenuOpen=false;
+    },
   },
 });
 
-export const { menuHandler } = headSlice.actions;
+export const { menuHandler,closeMenu } = headSlice.actions;
 export default headSlice.reducer;
