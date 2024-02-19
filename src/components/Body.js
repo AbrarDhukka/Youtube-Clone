@@ -1,12 +1,13 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import MainBodySec from "./MainBodySec";
+//import MainBodySec from "./MainBodySec";
+import { Outlet } from "react-router-dom";
 
 const Body = () => {
   return (
     <div className="flex">
       <Sidebar></Sidebar>
-      <MainBodySec></MainBodySec>
+      <Outlet></Outlet>
     </div>
   );
 };
