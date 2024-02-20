@@ -20,7 +20,10 @@ const MainBodySec = () => {
     <>
       <div className="w-[85%] flex flex-wrap justify-center items-center">
         {videos.map((video) => (
-         <Link to={"/watch?v="+video.id}> <VideoCard key={video.id} info={video}></VideoCard></Link>
+          <Link to={"/watch?v=" + video.id}>
+            {" "}
+            <VideoCard key={video.id} info={video}></VideoCard>
+          </Link>
         ))}
       </div>
     </>
