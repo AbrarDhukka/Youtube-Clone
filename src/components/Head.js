@@ -46,10 +46,25 @@ import { menuHandler } from "../utils/headSlice";
 // };
 // export default Head;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { YOUTUBE_SEARCH_API } from "../utils/const";
 
 const Head = () => {
+  const [searchQuery, setSearchQuery]=useState("")
+
+  console.log("Search input - " ,searchQuery)
+  useEffect(() => {
+    //getSuggestion();
+  }, []);
+
+
+  const getSuggestion= async()=>{
+    const data = await fetch(YOUTUBE_SEARCH_API+searchQuery)
+    const json = await data.json()
+    console.log("json data is ",json)
+  }
+
   const dispatch = useDispatch();
   const menuHandle = () => {
     dispatch(menuHandler());
@@ -71,11 +86,23 @@ const Head = () => {
       </div>
 
       <div className="w-full sm:w-2/3 md:w-3/4 lg:w-3/4 xl:w-3/4 flex justify-center items-center mt-4 sm:mt-0">
+        
+        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
         <input
           type="text"
-          className="border-2 p-2 my-2 border-gray-300 rounded-l-full w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2"
+          className="border-2 p-2 my-2 border-gray-300 rounded-l-full w-full "
           placeholder="Search"
+          value={searchQuery}
+          onChange={(e)=>{
+            setSearchQuery(e.target.value)
+          }}
         />
+        <ul className="absolute bg-white border-2 border-black">
+          <li>🔍 Iphone</li>
+          <li>🔍 Iphone</li>
+        </ul>
+        </div>
+     
         <img
           src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQnVMpxvmkJHTSJYC5M4KnzuTzzZV-_FJQN9QJZchDUFbUUbgDZ"
           alt="search"
