@@ -47,7 +47,7 @@ import { menuHandler } from "../utils/headSlice";
 // export default Head;
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { YOUTUBE_SEARCH_API } from "../utils/const";
 
 const Head = () => {
@@ -55,13 +55,22 @@ const Head = () => {
 
   console.log("Search input - ", searchQuery);
   useEffect(() => {
-    //getSuggestion();
-  }, []);
+    getSuggestion();
+  }, [searchQuery]);
 
   const getSuggestion = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    console.log("json data is ", json);
+    try {
+      if (searchQuery.trim() === "") {
+        console.error("Empty search query");
+        return;
+      }
+  
+      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const json = await data.json();
+      console.log("json data is ", json);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const dispatch = useDispatch();
