@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import MainBodySec from "./MainBodySec";
+//import MainBodySec from "./MainBodySec";
 import { Outlet } from "react-router-dom";
 
 const Body = () => {
@@ -11,5 +11,4 @@ const Body = () => {
     </div>
   );
 };
-
 export default Body;
