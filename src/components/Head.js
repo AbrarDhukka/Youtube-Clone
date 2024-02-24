@@ -52,27 +52,47 @@ import { YOUTUBE_SEARCH_API } from "../utils/const";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [suggestion, setSuggestion] = useState([]);
 
-  console.log("Search input - ", searchQuery);
+  //console.log("Search suggestion - ", suggestion);
   useEffect(() => {
-    getSuggestion();
+    const timer = setTimeout(() => getSuggestion(), 200);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [searchQuery]);
 
+  // const getSuggestion = async () => {
+  //   try {
+  //     if (searchQuery.trim() === "") {
+  //       console.error("Empty search query");
+  //       return;
+  //     }
+  //     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+  //     console.log("Data given", data.json)
+  //     const json = await data.json();
+  //     console.log("API CALLED");
+  //     setSuggestion(json);
+  //     console.log("json data is ", json);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
+
   const getSuggestion = async () => {
-    try {
-      if (searchQuery.trim() === "") {
-        console.error("Empty search query");
-        return;
-      }
+    console.log("API CALLED - "+ searchQuery)
+    const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/xml");
 
-      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-      const json = await data.json();
-      console.log("json data is ", json);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    // Extract suggestions from the XML document
+    const suggestionElements = doc.querySelectorAll("suggestion");
+    const extractedSuggestions = Array.from(suggestionElements);
+
+    setSuggestion(extractedSuggestions);
   };
-
   const dispatch = useDispatch();
   const menuHandle = () => {
     dispatch(menuHandler());
@@ -105,8 +125,13 @@ const Head = () => {
             }}
           />
           <ul className="absolute bg-white border-2 border-black">
-            <li>🔍 Iphone</li>
-            <li>🔍 Iphone</li>
+            {/* Map through the suggestions array and render each suggestion */}
+            {suggestion.map((suggestion, index) => (
+              <li key={index}>
+                {/* Access suggestion data using getAttribute("data") */}
+                {suggestion.getAttribute("data")}
+              </li>
+            ))}
           </ul>
         </div>
 
