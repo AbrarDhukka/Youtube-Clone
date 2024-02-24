@@ -53,6 +53,7 @@ import { YOUTUBE_SEARCH_API } from "../utils/const";
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
+  const [showSuggestion, setShowSuggestion] = useState(false);
 
   //console.log("Search suggestion - ", suggestion);
   useEffect(() => {
@@ -81,7 +82,7 @@ const Head = () => {
   // };
 
   const getSuggestion = async () => {
-    console.log("API CALLED - "+ searchQuery)
+    console.log("API CALLED - " + searchQuery);
     const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const data = await response.text();
     const parser = new DOMParser();
@@ -123,16 +124,34 @@ const Head = () => {
             onChange={(e) => {
               setSearchQuery(e.target.value);
             }}
+            onFocus={() => {
+              setShowSuggestion(true);
+            }}
+            onBlur={() => {
+              setShowSuggestion(false);
+            }}
           />
-          <ul className="absolute bg-white border-2 border-black">
-            {/* Map through the suggestions array and render each suggestion */}
-            {suggestion.map((suggestion, index) => (
-              <li key={index}>
-                {/* Access suggestion data using getAttribute("data") */}
-                {suggestion.getAttribute("data")}
-              </li>
-            ))}
-          </ul>
+          {showSuggestion && (
+            <div className="absolute bg-white  py-2 px-5 rounded-lg shadow-lg border-2 border-gray-100">
+              <ul>
+                {/* Map through the suggestions array and render each suggestion */}
+                {suggestion.map((suggestion, index) => (
+                  <div className="flex hover:bg-gray-100">
+                    <img
+                      src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQnVMpxvmkJHTSJYC5M4KnzuTzzZV-_FJQN9QJZchDUFbUUbgDZ"
+                      alt="search"
+                      className="h-7"
+                    />
+
+                    <li key={index} className="">
+                      {/* Access suggestion data using getAttribute("data") */}
+                      {suggestion.getAttribute("data")}
+                    </li>
+                  </div>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <img
