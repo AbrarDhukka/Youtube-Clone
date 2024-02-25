@@ -144,7 +144,7 @@ const Head = () => {
                     />
 
                     <li key={index} className="">
-                      {/* Access suggestion data using getAttribute("data") */}
+              
                       {suggestion.getAttribute("data")}
                     </li>
                   </div>
