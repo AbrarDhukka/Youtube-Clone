@@ -6,6 +6,24 @@ import { Link } from "react-router-dom";
 const MainBodySec = () => {
   const [videos, setVideos] = useState([]);
 
+  const categoryData = [
+    "All",
+    "Algorithm",
+    "News",
+    "Website",
+    "Javascript",
+    "Gaming",
+    "Politics",
+    "Music",
+    "Sports",
+    "Live",
+    "Tech",
+    "Programming",
+    "Kids",
+    "Education",
+    "Python",
+  ];
+
   useEffect(() => {
     getVideos();
   }, []);
@@ -17,8 +35,18 @@ const MainBodySec = () => {
     setVideos(json.items);
   };
   return (
-    <>
-      <div className="w-[85%] flex flex-wrap justify-center items-center">
+    <div className="flex-col">
+      <div className="flex mx-5 my-3">
+        {categoryData.map((cat, index) => (
+          <button
+            key={index}
+            className="mx-2 bg-gray-200 text-black rounded-lg px-2 py-1"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+      <div className=" flex flex-wrap justify-center items-center">
         {videos.map((video) => (
           <Link to={"/watch?v=" + video.id}>
             {" "}
@@ -26,7 +54,7 @@ const MainBodySec = () => {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
