@@ -103,7 +103,7 @@ const MainBodySec = () => {
   };
 
   return (
-    <div className="flex-col">
+    <div className="flex-col w-full">
       <div className="flex flex-wrap mx-2 my-3">
         {categoryData.map((cat, index) => (
           <button
