@@ -7,7 +7,7 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.head.isMenuOpen);
   if (isMenuOpen === false) return null;
   return (
-    <div className="lg:w-[15%] w-[300px]  h-screen shadow-lg mx-2 p-2 flex flex-col z-20 bg-white">
+    <div className="w-[300px] h-screen shadow-lg mx-2 p-2 flex flex-col z-20 bg-white">
       <Link to="/">
         <div className="flex p-2">
           <svg
