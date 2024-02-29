@@ -87,7 +87,6 @@ const CommentsContainer = () => {
   //   </div>
   // );
 
-
   const Comment = ({ data }) => {
     const [viewReply, setViewReply] = useState(false);
 
@@ -95,17 +94,23 @@ const CommentsContainer = () => {
       <div>
         {data &&
           data.map((comment, index) => (
-            <div key={index} className="flex flex-col sm:flex-row m-3 bg-slate-50 p-4">
-              <span><img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_1baO4t0RgM8tpHYBW_Ue7aiZUOhNoNP5Q&usqp=CAU"
-                alt="profile"
-                className="h-7 mb-4 md:mr-4"
-              />
+            <div
+              key={index}
+              className="flex flex-col sm:flex-row m-3 bg-slate-50 p-4"
+            >
+              <span>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_1baO4t0RgM8tpHYBW_Ue7aiZUOhNoNP5Q&usqp=CAU"
+                  alt="profile"
+                  className="h-7 mb-4 md:mr-4"
+                />
               </span>
               <div>
                 <div className="flex flex-col md:flex-row">
                   <p className="text-sm">{comment.name}</p>
-                  <p className="text-sm font-thin mx-0 md:mx-2 mb-2 md:mb-0">3 minutes ago</p>
+                  <p className="text-sm font-thin mx-0 md:mx-2 mb-2 md:mb-0">
+                    3 minutes ago
+                  </p>
                 </div>
                 <p className="text-sm md:text-base">{comment.comment}</p>
                 <div className="flex mt-2">
