@@ -9,7 +9,7 @@ const ChatMessage = () => {
         className="h-7"
       />
       <span className="font-bold">Abrar Dhukka</span>
-      <span className="px-2"> Hey Abrar here</span>
+      <span className="px-2">Hey Abrar here</span>
     </div>
   );
 };
