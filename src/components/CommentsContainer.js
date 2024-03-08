@@ -40,6 +40,7 @@ const CommentsContainer = () => {
 
   // const Comment = ({ data }) => {
   //   const [viewReply, setViewReply] = useState(false);
+
   //   return (
   //     <div>
   //       {data &&
@@ -79,6 +80,7 @@ const CommentsContainer = () => {
   //   );
   // };
   // return (
+    
   //   <div>
   //     <h1 className="font-bold mt-5 text-2xl">Comments</h1>
   //     <hr className="my-3 border-1 border-black"></hr>
