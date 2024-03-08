@@ -148,5 +148,4 @@ const CommentsContainer = () => {
   );
 };
 
-
-export default CommentsContainer;
+export default CommentsContainer
