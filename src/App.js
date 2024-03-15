@@ -7,7 +7,6 @@ import Body from "./components/Body";
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import MainBodySec from "./components/MainBodySec";
 import WatchPage from "./components/WatchPage";
-//import { DataProvider } from "./utils/DataContext";
 
 const appRouter = createBrowserRouter([{
   path: "/",
