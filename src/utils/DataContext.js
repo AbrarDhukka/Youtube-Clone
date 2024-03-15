@@ -2,6 +2,7 @@
 
 // const DataContext = createContext();
 
+
 // export const DataProvider = ({ children }) => {
 //   const [isMenuOpen, setIsMenuOpen] = useState(true);
 //   const menuHandler = () => {
