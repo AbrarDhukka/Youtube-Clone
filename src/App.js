@@ -23,7 +23,6 @@ const appRouter = createBrowserRouter([{
     }
   ]
 }])
-
 function App() {
   return (
     <div>
@@ -34,5 +33,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
